@@ -1,0 +1,133 @@
+# -*- coding: utf-8 -*-
+import primitives as prims
+from PIL import Image
+
+def getVal(attrs,nom,defaut):
+  if attrs.has_key(nom):
+    return attrs[nom]
+  else:
+    return defaut
+
+class Salle:
+  def __init__(self,attr):
+    self.x = getVal(attr,"x",0.0)
+    self.y = getVal(attr,"y",0.0)
+    self.n = getVal(attr,"north",0) # 0 - sans ouverture; 1 - avec petite ouverture; 2 - avec grande ouverture; 3 - sans cloisons
+    self.e = getVal(attr,"est",0) # 0 - sans ouverture; 1 - avec petite ouverture; 2 - avec grande ouverture; 3 - sans cloisons
+    self.s = getVal(attr,"south",0) # 0 - sans ouverture; 1 - avec petite ouverture; 2 - avec grande ouverture; 3 - sans cloisons
+    self.w = getVal(attr,"west",0) # 0 - sans ouverture; 1 - avec petite ouverture; 2 - avec grande ouverture; 3 - sans cloisons
+    self.style = getVal(attr,"style","cigarette")
+    self.buffer_wall=[self.n,self.s,self.e,self.w]
+    self.buffer_tableau = "none"
+    self.count_tableau = 1
+    print "x : ", self.x
+    print "y : ", self.y
+    print "N : ", self.n
+    print "E : ", self.e
+    print "W : ", self.w
+    print "S : ", self.s
+  
+  def cloison(self,translation_x,translation_z,rotation):
+    lesFils=[5]
+    mur = prims.MurPlein({"largeur":10.0, "hauteur":3.5, "recto":"textures/029frene.jpg", "facteurTexture":3.0})
+    lesFils[0]=mur
+    prims.Transform(lesFils,{"translation":str(translation_x)+" "+str(0.0)+" "+str(translation_z),"rotation":rotation}).draw()
+
+  def cloison_ouverte(self,translation_x,translation_z,rotation,offset_x,offset_y):
+    if(offset_x==6.0 or offset_y==6.0 or offset_y==-6.0 or offset_y==-6.0):
+      largeur = 4.0
+    else:
+      largeur= 2.0
+    lesFils=[5]
+    mur = prims.MurPlein({"largeur":largeur, "hauteur":3.5, "recto":"textures/029frene.jpg", "facteurTexture":3.0})
+    lesFils[0]=mur
+    prims.Transform(lesFils,{"translation":str(translation_x)+" "+str(0.0)+" "+str(translation_z),"rotation":rotation}).draw()
+    mur = prims.MurPlein({"largeur":largeur, "hauteur":3.5, "recto":"textures/029frene.jpg", "facteurTexture":3.0})
+    lesFils[0]=mur
+    prims.Transform(lesFils,{"translation":str(translation_x+offset_x)+" "+str(0.0)+" "+str(translation_z+offset_y),"rotation":rotation}).draw()
+
+  def get_tableau_by_theme(self):
+    if(self.buffer_tableau==str(self.style)+"/"+str(self.count_tableau)+".jpg"):
+      self.count_tableau = self.count_tableau+1
+    self.buffer_tableau = str(self.style)+"/"+str(self.count_tableau)+".jpg"
+    return self.buffer_tableau
+
+  def get_size_tableau(self,path):
+    return Image.open(path).size
+
+  def draw_tableau(self,path,translation_x,translation_z,rotation):
+    lesFils=[5]
+    tableau = prims.Tableau({'largeur':int(self.get_size_tableau(str(path))[0]),'hauteur':int(self.get_size_tableau(str(path))[1]),'texture':str(path)})
+    lesFils[0]=tableau
+    prims.Transform(lesFils,{"translation":str(translation_x)+" "+str(1.0)+" "+str(translation_z),"rotation":rotation}).draw()
+  
+-
+  def fill_salle_tableaux(self):
+    #Si la salle comporte une cloison_2, alors c'est un couloir donc pas de tableau
+    for element in self.buffer_wall:
+      if(int(element)==2):
+	return 0
+    
+    self.draw_tableau("tableaux/guernica.jpg",float(self.x) - 4.7,float(self.y),"-90.0 0.0 1.0 0.0")
+
+  def draw(self):
+    lesFils=[5]
+    if int(self.n) == 0:
+      translation_x = float(self.x) + 5.0
+      translation_z = float(self.y) + 5.0
+      self.cloison(translation_x, translation_z,"90.0 0.0 1.0 0.0")
+    elif int(self.n) == 1:
+      translation_x = float(self.x) + 5.0
+      translation_z = float(self.y) + 5.0
+      self.cloison_ouverte(translation_x, translation_z,"90.0 0.0 1.0 0.0",0.0,-6.0)
+    elif int(self.n) == 2:
+      translation_x = float(self.x) + 5.0
+      translation_z = float(self.y) + 5.0
+      self.cloison_ouverte(translation_x, translation_z,"90.0 0.0 1.0 0.0",0.0,-8.0)
+    if int(self.s) == 0:
+      translation_x = float(self.x) - 5.0
+      translation_z = float(self.y) + 5.0
+      self.cloison(translation_x, translation_z,"90.0 0.0 1.0 0.0")
+    elif int(self.s) == 1:
+      translation_x = float(self.x) - 5.0
+      translation_z = float(self.y) + 5.0
+      self.cloison_ouverte(translation_x, translation_z,"90.0 0.0 1.0 0.0",0.0,-6.0)
+    elif int(self.s) == 2:
+      translation_x = float(self.x) - 5.0
+      translation_z = float(self.y) + 5.0
+      self.cloison_ouverte(translation_x, translation_z,"90.0 0.0 1.0 0.0",0.0,-8.0)
+    if int(self.e) == 0:
+      translation_x = float(self.x) - 5.0
+      translation_z = float(self.y) + 5.0
+      self.cloison(translation_x, translation_z,"0.0 0.0 1.0 0.0")
+    elif int(self.e) == 1:
+      translation_x = float(self.x) - 5.0
+      translation_z = float(self.y) + 5.0
+      self.cloison_ouverte(translation_x, translation_z,"0.0 0.0 0.0 0.0",6.0,0.0)
+    elif int(self.e) == 2:
+      translation_x = float(self.x) - 5.0
+      translation_z = float(self.y) + 5.0
+      self.cloison_ouverte(translation_x, translation_z,"0.0 0.0 0.0 0.0",8.0,0.0)
+    if int(self.w) == 0:
+      translation_x = float(self.x) - 5.0
+      translation_z = float(self.y) - 5.0
+      self.cloison(translation_x, translation_z,"0.0 0.0 0.0 0.0")
+    elif int(self.w) == 1:
+      translation_x = float(self.x) - 5.0
+      translation_z = float(self.y) - 5.0
+      self.cloison_ouverte(translation_x, translation_z,"0.0 1.0 0.0 0.0",6.0,0.0)
+    elif int(self.w) == 2:
+      translation_x = float(self.x) - 5.0
+      translation_z = float(self.y) - 5.0
+      self.cloison_ouverte(translation_x, translation_z,"0.0 1.0 0.0 0.0",8.0,0.0)
+    self.fill_salle_tableaux()
+      
+
+      
+      
+      
+
+
+    
+  
+      

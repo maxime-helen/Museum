@@ -1,0 +1,396 @@
+
+
+<Scene>
+<!-- les tableaux -->
+  <!--<Transform translation="-3.0 1.0 0.0">
+    <Tableau largeur="4.048" hauteur="2.36" texture="tableaux/guernica.jpg" />
+  </Transform>
+
+  <Transform translation="3.0 1.0 0.0">
+    <Tableau largeur="4.048" hauteur="2.36" texture="tableaux/romantisme.jpg"  />
+  </Transform>
+
+  <Transform translation="0.0 0.0 0.0">
+    <Tableau largeur="2.0" hauteur="3.7" texture="textures/rouille.png" />
+  </Transform>-->
+
+<!-- les murs -->
+  <!--<Transform translation="-5.0 0.0 -0.5">
+    <Cloison largeur="10.0" hauteur="3.5" recto="textures/paves.png" facteurTexture="2.5"/>
+  </Transform>
+
+  <Transform translation="-5.0 0.0 -0.5" rotation="-90.0 0.0 1.0 0.0">
+    <Cloison largeur="10.0" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+
+  <Transform translation="0.0 0.0 0.0" rotation="-90.0 0.0 1.0 0.0">
+    <Cloison largeur="10.0" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>-->
+  
+  
+  
+  
+<!--   les murs  extérieurs-->
+
+  <!--   mur Nord -->
+  <Transform translation="-20.0 0.0 -20.0">
+    <Cloison largeur="40.0" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <!--   mur Sud -->
+  <Transform translation="-20.0 0.0 20.0">
+    <Cloison largeur="40.0" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <!--   mur ouest -->
+  <Transform translation="-20.0 0.0 -20.0" rotation="-90.0 0.0 1.0 0.0">
+    <Cloison largeur="40.0" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <!--   mur ouest -->
+  <Transform translation="20.0 0.0 -20.0" rotation="-90.0 0.0 1.0 0.0">
+    <Cloison largeur="40.0" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+<!-- Les murs des salles   -->
+  <!--   horizontaux (lignes)-->
+    <!--     ligne sud -->
+  <Transform translation="-20.0 0.0 10.0">
+    <Cloison largeur="2.5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <Transform translation="-12.5 0.0 10.0">
+    <Cloison largeur="5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <Transform translation="-2.5 0.0 10.0">
+    <Cloison largeur="15" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <Transform translation="17.5 0.0 10.0">
+    <Cloison largeur="2.5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+<!--       les Tableaux du mur sud -->
+    <Transform translation="5.0 1.0 0">
+      <Tableau largeur="2.0" hauteur="1.0" texture="tableaux/maggio.jpg" />
+    </Transform>
+  
+  
+  <!--     ligne mid -->
+  <Transform translation="-20.0 0.0 0.0">
+    <Cloison largeur="12.5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <Transform translation="-2.5 0.0 0.0">
+    <Cloison largeur="5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <Transform translation="7.5 0.0 0.0">
+    <Cloison largeur="5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <Transform translation="17.5 0.0 0.0">
+    <Cloison largeur="2.5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  
+  <!--     ligne nord -->
+  <Transform translation="-20.0 0.0 -10.0">
+    <Cloison largeur="2.5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <Transform translation="-12.5 0.0 -10.0">
+    <Cloison largeur="5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <Transform translation="-2.5 0.0 -10.0">
+    <Cloison largeur="5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <Transform translation="7.5 0.0 -10.0">
+    <Cloison largeur="12.5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+
+
+
+
+  <!--   verticaux (colonnes)-->
+    <!--     colone ouest -->
+  <Transform translation="-10.0 0.0 -20.0" rotation="-90.0 0.0 1.0 0.0">
+    <Cloison largeur="2.5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <Transform translation="-10 0.0 -12.5" rotation="-90.0 0.0 1.0 0.0">
+    <Cloison largeur="15" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <Transform translation="-10 0.0 7.5" rotation="-90.0 0.0 1.0 0.0">
+    <Cloison largeur="12.5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  
+  <!--     colone mid -->
+  <Transform translation="0.0 0.0 -20.0" rotation="-90.0 0.0 1.0 0.0">
+    <Cloison largeur="2.5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <Transform translation="0 0.0 -12.5" rotation="-90.0 0.0 1.0 0.0">
+    <Cloison largeur="15" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <Transform translation="0 0.0 7.5" rotation="-90.0 0.0 1.0 0.0">
+    <Cloison largeur="12.5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  
+  <!--     colone est -->
+  <Transform translation="10.0 0.0 -20.0" rotation="-90.0 0.0 1.0 0.0">
+    <Cloison largeur="2.5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <Transform translation="10 0.0 -12.5" rotation="-90.0 0.0 1.0 0.0">
+    <Cloison largeur="5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <Transform translation="10 0.0 -2.5" rotation="-90.0 0.0 1.0 0.0">
+    <Cloison largeur="15" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <Transform translation="10 0.0 17.5" rotation="-90.0 0.0 1.0 0.0">
+    <Cloison largeur="2.5" haute
+  <!--   mur Sud -->
+  <Transform translation="-20.0 0.0 20.0">
+    <Cloison largeur="40.0" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <!--   mur ouest -->
+  <Transform translation="-20.0 0.0 -20.0" rotation="-90.0 0.0 1.0 0.0">
+    <Cloison largeur="40.0" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <!--   mur ouest -->
+  <Transform translation="20.0 0.0 -20.0" rotation="-90.0 0.0 1.0 0.0">
+    <Cloison largeur="40.0" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+<!-- Les murs des salles   -->
+  <!--   horizontaux (lignes)-->
+    <!--     ligne sud -->
+  <Transform translation="-20.0 0.0 10.0">
+    <Cloison largeur="2.5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <Transform translation="-12.5 0.0 10.0">
+    <Cloison largeur="5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <Transform translation="-2.5 0.0 10.0">
+    <Cloison largeur="15" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <Transform translation="17.5 0.0 10.0">
+    <Cloison largeur="2.5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+<!--       les Tableaux du mur sud -->
+    <Transform translation="5.0 1.0 0">
+      <Tableau largeur="2.0" hauteur="1.0" texture="tableaux/maggio.jpg" />
+    </Transform>
+  
+  
+  <!--     ligne mid -->
+  <Transform translation="-20.0 0.0 0.0">
+    <Cloison largeur="12.5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <Transform translation="-2.5 0.0 0.0">
+    <Cloison largeur="5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <Transform translation="7.5 0.0 0.0">
+    <Cloison largeur="5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <Transform translation="17.5 0.0 0.0">
+    <Cloison largeur="2.5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  
+  <!--     ligne nord -->
+  <Transform translation="-20.0 0.0 -10.0">
+    <Cloison largeur="2.5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <Transform translation="-12.5 0.0 -10.0">
+    <Cloison largeur="5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <Transform translation="-2.5 0.0 -10.0">
+    <Cloison largeur="5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <Transform translation="7.5 0.0 -10.0">
+    <Cloison largeur="12.5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+
+
+
+
+  <!--   verticaux (colonnes)-->
+    <!--     colone ouest -->
+  <Transform translation="-10.0 0.0 -20.0" rotation="-90.0 0.0 1.0 0.0">
+    <Cloison largeur="2.5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <Transform translation="-10 0.0 -12.5" rotation="-90.0 0.0 1.0 0.0">
+    <Cloison largeur="15" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <Transform translation="-10 0.0 7.5" rotation="-90.0 0.0 1.0 0.0">
+    <Cloison largeur="12.5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  
+  <!--     colone mid -->
+  <Transform translation="0.0 0.0 -20.0" rotation="-90.0 0.0 1.0 0.0">
+    <Cloison largeur="2.5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <Transform translation="0 0.0 -12.5" rotation="-90.0 0.0 1.0 0.0">
+    <Cloison largeur="15" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <Transform translation="0 0.0 7.5" rotation="-90.0 0.0 1.0 0.0">
+    <Cloison largeur="12.5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  
+  <!--     colone est -->
+  <Transform translation="10.0 0.0 -20.0" rotation="-90.0 0.0 1.0 0.0">
+    <Cloison largeur="2.5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <Transform translation="10 0.0 -12.5" rotation="-90.0 0.0 1.0 0.0">
+    <Cloison largeur="5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <Transform translation="10 0.0 -2.5" rotation="-90.0 0.0 1.0 0.0">
+    <Cloison largeur="15" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <Transform translation="10 0.0 17.5" rotation="-90.0 0.0 1.0 0.0">
+    <Cloison largeur="2.5" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  
+
+
+
+
+
+<!-- L'environnement -->
+
+  <!--   les montagnes -->
+  <Transform translation="-50.0 0.0 -50.0">
+    <Cloison largeur="100.0" hauteur="100.0" recto="textures/north.jpg" />
+  </Transform>
+
+ <Transform translation="50.0 0.0 -50.0" rotation="-90.0 0.0 1.0 0.0">
+    <Cloison largeur="100.0" hauteur="100.0" recto="textures/east.jpg" />
+  </Transform>
+
+  <Transform translation="-50.0 0.0 50.0" rotation="90.0 0.0 1.0 0.0">
+    <Cloison largeur="100.0" hauteur="100.0" recto="textures/west.jpg" />
+  </Transform>
+
+  <Transform translation="50.0 0.0 50.0" rotation="180.0 0.0 1.0 0.0">
+    <Cloison largeur="100.0" hauteur="100.0" recto="textures/south.jpg" />
+  </Transform>
+  <!--   fin les montagnes -->
+  
+  
+  
+
+
+<!-- sol -->
+  <Sol taille="50.0" texture="textures/water2.jpg" />
+
+  <Transform translation="0.0 3.4 0.0">
+  <!-- Plafon -->
+    <Sol taille="20.0" texture="textures/maison3etage12-4.png" />
+    
+   <!-- <Transform translation="0.0 0.1 0.0">
+    <Sol taille="20.0" texture="textures/mur2.png" />
+    </Transform>-->
+    
+  </Transform>
+ur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  
+
+
+
+
+
+<!-- L'environnement -->
+
+  <!--   les montagnes -->
+  <Transform translation="-50.0 0.0 -50.0">
+    <Cloison largeur="100.0" hauteur="100.0" recto="textures/north.jpg" />
+  </Transform>
+
+ <Transform translation="50.0 0.0 -50.0" rotation="-90.0 0.0 1.0 0.0">
+    <Cloison largeur="100.0" hauteur="100.0" recto="textures/east.jpg" />
+  </Transform>
+
+  
+  <!--   mur Nord -->
+  <Transform translation="-20.0 0.0 -20.0">
+    <Cloison largeur="40.0" hauteur="3.5" recto="textures/029frene.jpg" facteurTexture="3.0" />
+  </Transform>
+   <!--   mur Sud -->
+  <Transform translation="-20.0 0.0 20.0">
+    <Cloison largeur="40.0" hauteur="3.5" recto="textures/029frene.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <!--   mur ouest -->
+  <Transform translation="-20.0 0.0 -20.0" rotation="-90.0 0.0 1.0 0.0">
+    <Cloison largeur="40.0" hauteur="3.5" recto="textures/029frene.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+  <!--   mur ouest -->
+  <Transform translation="20.0 0.0 -20.0" rotation="-90.0 0.0 1.0 0.0">
+    <Cloison largeur="40.0" hauteur="3.5" recto="textures/029frene.jpg" facteurTexture="3.0" />
+  </Transform><Transform translation="-50.0 0.0 50.0" rotation="90.0 0.0 1.0 0.0">
+    <Cloison largeur="100.0" hauteur="100.0" recto="textures/west.jpg" />
+  </Transform>
+
+  <Transform translation="50.0 0.0 50.0" rotation="180.0 0.0 1.0 0.0">
+    <Cloison largeur="100.0" hauteur="100.0" recto="textures/south.jpg" />
+  </Transform>
+  <!--   fin les montagnes -->
+  
+  
+  
+
+
+<!-- sol -->
+  <Sol taille="50.0" texture="textures/water2.jpg" />
+
+  <Transform translation="0.0 3.4 0.0">
+  <!-- Plafon -->
+    <Sol taille="20.0" texture="textures/maison3etage12-4.png" />
+    
+   <!-- <Transform translation="0.0 0.1 0.0">
+    <Sol taille="20.0" texture="textures/mur2.png" />
+    </Transform>-->
+    
+  </Transform>
+
+ 
+</Scene>

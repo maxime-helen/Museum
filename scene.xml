@@ -1,0 +1,33 @@
+
+
+<Scene>
+  <Sol taille="20.0" texture="textures/bois1.png" />
+
+  <Transform translation="0.0 3.5 0.0">
+    <Sol taille="20.0" texture="textures/rouille.png" />
+  </Transform>
+  
+  <Salle x="-15.0" y="-15.0" north="2" south="0" est="0" west="0"/> 
+  <Salle x="-5.0" y="-15.0" north="0" south="2" est="2" west="0" /> 
+  <Salle x="5.0" y="-15.0" north="1" south="0" est="0" west="0"  theme="brest"/> 
+  <Salle x="15.0" y="-15.0" north="0" south="1" est="1" west="0" theme="enfantscigarette"/>
+  
+  <Salle x="-15.0" y="-5.0" north="1" south="0" est="0" west="0" theme="noiretblanc"/>
+  <Salle x="-5.0" y="-5.0" north="1" south="1" est="2" west="2"/>
+  <Salle x="5.0" y="-5.0" north="1" south="1" est="0" west="0" theme="plage"/>
+  <Salle x="15.0" y="-5.0" north="0" south="1" est="1" west="1" theme="portrait"/>
+  
+  <Salle x="-15.0" y="5.0" north="0" south="0" est="1" west="0" theme="psychedelique"/>
+  <Salle x="-5.0" y="5.0" north="2" south="0" est="0" west="2"/>
+  <Salle x="5.0" y="5.0" north="2" south="2" est="1" west="0"/>
+  <Salle x="15.0" y="5.0" north="0" south="2" est="2" west="1"/>
+  
+  <Salle x="-15.0" y="15.0" north="1" south="0" est="0" west="1" theme="tatouage"/>
+  <Salle x="-5.0" y="15.0" north="1" south="1" est="0" west="0" theme="sport"/>
+  <Salle x="5.0" y="15.0" north="0" south="1" est="0" west="1" theme="contemporain"/>
+  <Salle x="15.0" y="15.0" north="0" south="0" est="0" west="2"/>
+
+  <Signaletique/>
+
+ 
+</Scene>

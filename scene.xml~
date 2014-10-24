@@ -1,0 +1,73 @@
+
+
+<Scene>
+<!-- les tableaux -->
+  <!--<Transform translation="-3.0 1.0 0.0">
+    <Tableau largeur="4.048" hauteur="2.36" texture="tableaux/guernica.jpg" />
+  </Transform>
+
+  <Transform translation="3.0 1.0 0.0">
+    <Tableau largeur="4.048" hauteur="2.36" texture="tableaux/romantisme.jpg"  />
+  </Transform>
+
+  <Transform translation="0.0 0.0 0.0">
+    <Tableau largeur="2.0" hauteur="3.7" texture="textures/rouille.png" />
+  </Transform>-->
+
+<!-- les murs -->
+  <!--<Transform translation="-5.0 0.0 -0.5">
+    <Cloison largeur="10.0" hauteur="3.5" recto="textures/paves.png" facteurTexture="2.5"/>
+  </Transform>
+
+  <Transform translation="-5.0 0.0 -0.5" rotation="-90.0 0.0 1.0 0.0">
+    <Cloison largeur="10.0" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>
+  
+
+  <Transform translation="0.0 0.0 0.0" rotation="-90.0 0.0 1.0 0.0">
+    <Cloison largeur="10.0" hauteur="3.5" recto="textures/Tile_Ceramic_Earthy.jpg" facteurTexture="3.0" />
+  </Transform>-->
+  
+  
+  
+  
+<!--   les murs  extérieurs-->
+
+
+  
+  
+  <!-- sol -->
+  <Sol taille="40.0" texture="textures/redWood.jpg" />
+
+  <Transform translation="0.0 3.4 0.0">
+  <!-- Plafon -->
+    <Sol taille="20.0" texture="textures/maison3etage12-4.png" />
+    
+   <!-- <Transform translation="0.0 0.1 0.0">
+    <Sol taille="20.0" texture="textures/mur2.png" />
+    </Transform>-->
+    
+  </Transform>
+  
+  <Salle x="-15.0" y="-15.0" north="2" south="0" est="0" west="0"/> 
+  <Salle x="-5.0" y="-15.0" north="0" south="2" est="2" west="0" theme="brest"/> 
+  <Salle x="5.0" y="-15.0" north="1" south="0" est="0" west="0"  theme="comtemporain"/> 
+  <Salle x="15.0" y="-15.0" north="0" south="1" est="1" west="0" theme="enfantscigarette"/>
+  
+  <Salle x="-15.0" y="-5.0" north="1" south="0" est="0" west="0" theme="noireetblanc"/>
+  <Salle x="-5.0" y="-5.0" north="1" south="1" est="2" west="2"/>
+  <Salle x="5.0" y="-5.0" north="1" south="1" est="0" west="0" theme="plage"/>
+  <Salle x="15.0" y="-5.0" north="0" south="1" est="1" west="1" theme="portrait"/>
+  
+  <Salle x="-15.0" y="5.0" north="0" south="0" est="1" west="0" theme="psychedelique"/>
+  <Salle x="-5.0" y="5.0" north="2" south="0" est="0" west="2"/>
+  <Salle x="5.0" y="5.0" north="2" south="2" est="1" west="0"/>
+  <Salle x="15.0" y="5.0" north="0" south="2" est="2" west="1"/>
+  
+  <Salle x="-15.0" y="15.0" north="1" south="0" est="0" west="1" theme="tatouage"/>
+  <Salle x="-5.0" y="15.0" north="1" south="1" est="0" west="0" theme="sport"/>
+  <Salle x="5.0" y="15.0" north="0" south="1" est="0" west="1"/>
+  <Salle x="15.0" y="15.0" north="0" south="0" est="0" west="2"/>
+
+ 
+</Scene>
