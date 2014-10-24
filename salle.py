@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import primitives as prims
-from PIL import Image
 import random
 
 def getVal(attrs,nom,defaut):
@@ -19,11 +18,11 @@ class Signaletique:
     self.count = self.count+1
 
   def get_size_signaletique(self):
-    return [4.048,1.2]
+    return [4.048,1.6]
 
   def draw_signaletique(self,path,translation_x,translation_z,rotation) :
     lesFils = [1]
-    signaletique = prims.Tableau({'largeur':float((self.get_size_signaletique()[0])),'hauteur':float((self.get_size_signaletique()[1])),'texture':str("tableaux/guernica.jpg")})
+    signaletique = prims.Tableau({'largeur':float((self.get_size_signaletique()[0])),'hauteur':float((self.get_size_signaletique()[1])),'texture':str(path)})
     lesFils[0]=signaletique
     prims.Transform(lesFils,{"translation":str(translation_x)+" "+str(0.0)+" "+str(translation_z),"rotation":rotation}).draw()
 
@@ -48,11 +47,6 @@ class Signaletique:
     if((str(salle.x)+" "+str(salle.y-10.0)) in self.buffer) :
       self.buffer_siblings.append(self.buffer[str(salle.x)+" "+str(unicode(salle.y-10.0))])
 
-  def get_path_by_salles(self,salle):
-    print "get_path_by_salles"
-    # for element in self.buffer:
-    #   if()
-
   def draw(self) :
     for element in self.buffer:
       self.set_buffer_siblings(self.buffer[element])
@@ -61,31 +55,38 @@ class Signaletique:
         offset_x = self.buffer[element].x-subelement.x
         offset_y = self.buffer[element].y-subelement.y
         if (offset_x==-10.0 and int(self.buffer[element].n)!=0): #N
-          print self.buffer[element].n
           if(int(self.buffer[element].n)==2):
-            self.draw_signaletique("ds",self.buffer[element].x+4.89,self.buffer[element].y+4.00,"-90.0 0.0 1.0 0.0")
+            self.draw_signaletique("signalisation/sens_visite_gauche.jpg",self.buffer[element].x+4.88,self.buffer[element].y+4.00,"-90.0 0.0 1.0 0.0")
           elif(int(self.buffer[element].n)!=0):
-            self.draw_signaletique("ds",self.buffer[element].x+4.89,self.buffer[element].y+2.00,"-90.0 0.0 1.0 0.0")
+            if(subelement.style!='none'):
+              self.draw_signaletique("signalisation/salle_"+subelement.style+"_gauche.jpg",self.buffer[element].x+4.88,self.buffer[element].y+2.00,"-90.0 0.0 1.0 0.0")
+            else:
+              self.draw_signaletique("signalisation/sens_visite_gauche.jpg",self.buffer[element].x+4.88,self.buffer[element].y+2.00,"-90.0 0.0 1.0 0.0")
         elif (offset_x==10.0 and int(self.buffer[element].s)!=0): #S
-          print self.buffer[element].s
           if(int(self.buffer[element].s)==2):
-            self.draw_signaletique("ds",self.buffer[element].x-4.89,self.buffer[element].y+4.00,"90.0 0.0 1.0 0.0")
+            self.draw_signaletique("signalisation/sens_visite_droite.jpg",self.buffer[element].x-4.88,self.buffer[element].y+4.00,"90.0 0.0 1.0 0.0")
           elif(int(self.buffer[element].s)!=0):
-            self.draw_signaletique("ds",self.buffer[element].x-4.89,self.buffer[element].y+2.00,"90.0 0.0 1.0 0.0")
+            if(subelement.style!='none'):
+              self.draw_signaletique("signalisation/salle_"+subelement.style+"_droite.jpg",self.buffer[element].x-4.88,self.buffer[element].y+2.00,"90.0 0.0 1.0 0.0")
+            else :
+              self.draw_signaletique("signalisation/sens_visite_droite.jpg",self.buffer[element].x-4.88,self.buffer[element].y+2.00,"90.0 0.0 1.0 0.0")
         if (offset_y==10.0 and int(self.buffer[element].w)!=0): #W
-          print self.buffer[element].w
           if(int(self.buffer[element].w)==2):
-            self.draw_signaletique("ds",self.buffer[element].x-4.00,self.buffer[element].y-4.89,"0.0 0.0 1.0 0.0")
+            self.draw_signaletique("signalisation/sens_visite_droite.jpg",self.buffer[element].x-4.00,self.buffer[element].y-4.88,"0.0 0.0 1.0 0.0")
           elif(int(self.buffer[element].w)!=0): 
-            self.draw_signaletique("ds",self.buffer[element].x+2.00,self.buffer[element].y-4.89,"0.0 0.0 1.0 0.0")
+            if(subelement.style!='none'):
+              self.draw_signaletique("signalisation/salle_"+subelement.style+"_gauche.jpg",self.buffer[element].x+2.00,self.buffer[element].y-4.88,"0.0 0.0 1.0 0.0")
+            else :
+              self.draw_signaletique("signalisation/sens_visite_gauche.jpg",self.buffer[element].x+2.00,self.buffer[element].y-4.88,"0.0 0.0 1.0 0.0")
         elif (offset_y==-10.0 and int(self.buffer[element].e)!=0): #E
           if(int(self.buffer[element].e)==2) :
-            self.draw_signaletique("ds",self.buffer[element].x-4.00,self.buffer[element].y+4.89,"180.0 0.0 1.0 0.0")
+            self.draw_signaletique("signalisation/sens_visite_droite.jpg",self.buffer[element].x+4.00,self.buffer[element].y+4.88,"180.0 0.0 1.0 0.0")
           elif(int(self.buffer[element].e)!=0):
-            self.draw_signaletique("ds",self.buffer[element].x+2.00,self.buffer[element].y+4.89,"180.0 0.0 1.0 0.0")
+            if(subelement.style!='none'):
+              self.draw_signaletique("signalisation/salle_"+subelement.style+"_droite.jpg",self.buffer[element].x+2.00,self.buffer[element].y+4.88,"180.0 0.0 1.0 0.0")
+            else :
+              self.draw_signaletique("signalisation/sens_visite_droite.jpg",self.buffer[element].x+2.00,self.buffer[element].y+4.88,"180.0 0.0 1.0 0.0")
       self.buffer_siblings = []
-
-
 
 class Salle:
   def __init__(self,attr):

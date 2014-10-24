@@ -135,7 +135,7 @@ class Tableau :
 		
 		# Affichage du verso
 
-		glColor3f(1.0,0.0,0.0)
+		glColor3f(1.0,1.0,1.0)
 		glVertex3f(-0.5, 0.0, -0.02)
 		glVertex3f(-0.5, 1.0, -0.02)
 		glVertex3f( 0.5, 1.0, -0.02)
