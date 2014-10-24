@@ -89,6 +89,7 @@ class Signaletique:
       self.buffer_siblings = []
 
 class Salle:
+
   def __init__(self,attr):
     self.x = float(getVal(attr,"x",0.0))
     self.y = float(getVal(attr,"y",0.0))
@@ -232,14 +233,4 @@ class Salle:
     translation_z = float(self.y) - 4.7 
     self.tableaux(translation_x, translation_z,"0.0 0.0 1.0 0.0")
     self.count_tableau=1
- 
-      
-
-      
-      
-      
-
-
-    
-  
       
