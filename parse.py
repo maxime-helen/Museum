@@ -5,7 +5,6 @@ import salle as salle
 
 signaletique = salle.Signaletique()
 
-
 def getAttributs(node):
 	attributs = node.attributes
 	res = {}

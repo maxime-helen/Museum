@@ -132,6 +132,9 @@ class Salle:
   def get_size_tableau(self):
     return [4.048,1.6]
 
+  def get_size_lustre(self):
+    return [0.75,0.5]
+
   def draw_tableau(self,path,translation_x,translation_z,rotation):
     if path!='A' :
       lesFils=[5]
@@ -139,6 +142,12 @@ class Salle:
       lesFils[0]=tableau
       prims.Transform(lesFils,{"translation":str(translation_x)+" "+str(1.0)+" "+str(translation_z),"rotation":rotation}).draw()
   
+  def draw_lustre(self):
+    lesFils=[5]
+    tableau = prims.Tableau({'largeur':float((self.get_size_lustre()[0])),'hauteur':float((self.get_size_lustre()[1])),'texture':str("tableaux/lustre.jpg")})
+    lesFils[0]=tableau
+    prims.Transform(lesFils,{"translation":str(self.x)+" 3.3 "+str(self.y),"rotation":"90.0 1.0 0.0 0.0"}).draw()
+
   def tableaux(self,translation_x,translation_y,rotation):
     #Si la salle comporte une cloison_2, alors c'est un couloir donc pas de tableau
     flag = 0
@@ -232,5 +241,6 @@ class Salle:
     translation_x = float(self.x) + offset
     translation_z = float(self.y) - 4.7 
     self.tableaux(translation_x, translation_z,"0.0 0.0 1.0 0.0")
+    self.draw_lustre()
     self.count_tableau=1
       
