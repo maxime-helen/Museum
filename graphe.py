@@ -1,5 +1,5 @@
 import vec3
-
+import math
 
 class Noeud : 
 
@@ -90,6 +90,18 @@ class Dijkstra :
 
 	def trouverChemin(self,de=None,a=None):
 		return self.graphe.coordonnees(self.chercher(de,a))
+
+	def getValuePosition(self,value):
+		if value==-3 : value=0
+		elif value==-1 : value=1
+		elif value==1 : value=2
+		elif value==3 : value=3
+		return str(int(value))
+
+	def getNameByPosition(self,vec):
+		x = self.getValuePosition(vec.x/5)
+		y = self.getValuePosition(vec.y/5)
+		return "p"+x+y
 
 	def chercher(self, ori, ext):
 
@@ -212,9 +224,10 @@ if __name__ == "__main__":
 
 	unGraphe = lireGrapheNavigation("graphe.nav")
 	dij = Dijkstra(unGraphe)
-	print "==> ", dij.chercher("p00","p21")
-	print unGraphe.coordonnees(dij.chercher("p00","p21"))
-	tefa = dij.trouverChemin(de="p00",a="p21")
+	# print "==> ", dij.chercher("p00","p21")
+	# print unGraphe.coordonnees(dij.chercher("p00","p21"))
+	print "==> ", dij.trouverChemin(de="p00",a="p33")
+	print dij.getNameByPosition(vec3.Vec3(15.0,5.0,0))
 
 	print unGraphe
 

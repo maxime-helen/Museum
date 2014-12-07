@@ -3,9 +3,9 @@
 <Scene>
   <Sol taille="20.0" texture="textures/bois1.png" />
 
-  <Transform translation="0.0 3.5 0.0">
+<!--   <Transform translation="0.0 3.5 0.0">
     <Sol taille="20.0" texture="textures/rouille.png" />
-  </Transform>
+  </Transform> -->
   
   <Salle x="-15.0" y="-15.0" north="2" south="0" est="0" west="0"/> 
   <Salle x="-5.0" y="-15.0" north="0" south="2" est="2" west="0" /> 

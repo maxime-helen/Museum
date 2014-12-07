@@ -8,7 +8,7 @@ import pyglet
 from pyglet.gl import *
 #from OpenGL.GLU import *
 #from OpenGL.GL import *
-import Image
+from PIL import Image
 import os.path
 import sys
 import math
@@ -378,4 +378,4 @@ class WavefrontModel(AbstractModel):
 if __name__ == "__main__":
 
 	model = WavefrontModel()
-	model.LoadFile('models/tank/wall4.obj', 0.5)
+	model.LoadFile('pingouin/p.obj', 0.5)

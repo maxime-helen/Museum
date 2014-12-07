@@ -10,6 +10,9 @@ import primitives as prims
 import vec3
 import camera
 import parse
+import wavefront
+import acteur 
+
 
 # Variables globales
 #  -----------------
@@ -26,7 +29,10 @@ horloge=0.0
 scene = []
 textures={}
 laCamera = None
-
+# pingouin = wavefront.WavefrontModel()
+# pingouin.LoadFile('pingouin/p.obj', 1)
+ex = acteur.ActorSteering(-15.0,-15.0,'pingouin/p.obj')
+ex.arriveOn()
 
 def setup():
 
@@ -65,11 +71,16 @@ def on_draw():
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
 	# Placement de la camera
-
+	
 	#glLoadIdentity()
 	#gluLookAt( 0.0, 1.6, 8.0, 0.0, 1.6, 0.0, 0.0,1.0,0.0)
- 	
 	laCamera.placer()
+	ex.update(0.1)
+	# glPushMatrix()
+	# glRotatef(90.0,-1.0,0.0,0.0)
+	# glTranslatef(-15.0, 15.0,0.0)
+	# pingouin.Draw()
+	# glPopMatrix()
 	for obj in scene() :
 		obj.draw()
 
@@ -110,6 +121,7 @@ def update(dt):
 	horloge = horloge + dt
 
 	laCamera.update(dt)
+	
 
 
 

@@ -18,6 +18,10 @@ class Vec3:
 	def getCoordonnees(self):
 		return self.x, self.y, self.z
 
+	def compare(self,v,tol):
+		if abs(self.x - v.x) <= tol and abs(self.y - v.y) <= tol and abs(self.z - v.z) <= tol : return True
+		else : return False
+
 	def soit(self,v):
 		self.x = v.x
 		self.y = v.y
@@ -33,6 +37,10 @@ class Vec3:
 		self.y = u.y - v.y
 		self.z = u.z - v.z
 
+	def goto(self,k,v):
+		self.x += (v.x-self.x)*k
+		self.y += (v.y-self.y)*k	
+		self.z += (v.z-self.z)*k		
 
 	def accumuler(self,k,v):
 		self.x += k*v.x
