@@ -1,9 +1,11 @@
 import vec3
 import wavefront
 import graphe
+import __builtin__
 from pyglet.gl import *
 
 class Actor(object) :
+
 	def __init__(self,x,y,url):
 		self.null = vec3.Vec3()
 		self.currentPosition = vec3.Vec3(0.0,0.0,0.0)
@@ -14,47 +16,92 @@ class Actor(object) :
 		self.currentPosition.vers(self.null,self.originPosition)
 
 	def update(self):
-		print 'wew'
-		# glPushMatrix()
-		# glRotatef(90.0,-1.0,0.0,0.0)
-		# glTranslatef(self.currentPosition.x,-self.currentPosition.y,0.0)
-		# self.draw()
-		# glPopMatrix()
+		return 0
 
 	def draw(self):
 		self.model.Draw()
 
 class ActorSteering(Actor) :
+
 	def __init__(self,x,y,url):
 		self.STEERING = False
 		self.ARRIVE = False
 		self.position = vec3.Vec3()
 		self.graph = graphe.Dijkstra(graphe.lireGrapheNavigation("graphe.nav"))
-		self.road = self.graph.trouverChemin(de="p00",a="p33")
-		self.index = 1
+		self.indexArrive = 1
+		self.indexSteering = 1
+		self.angle = 0.0
 		Actor.__init__(self,x,y,url)
+		self.road = self.graph.trouverChemin(de=self.graph.getNameByPosition(vec3.Vec3(x,y,0.0)),a="p33")
+
+	def getRotation(self,index):
+		tmp = 1
+		if self.currentPosition.x<self.road[index].x and self.currentPosition.x==self.road[index].x:
+			tmp = 0.0
+		if self.currentPosition.x>self.road[index].x and self.currentPosition.x==self.road[index].x:
+			tmp = 180.0
+		if self.currentPosition.y<self.road[index].y and self.currentPosition.x==self.road[index].x:
+			tmp = 270.0
+		if self.currentPosition.y>self.road[index].y and self.currentPosition.x==self.road[index].x:
+			tmp = 90.0
+		if self.currentPosition.y>self.road[index].y and self.currentPosition.x>self.road[index].x:
+			tmp = 125.0
+		if self.currentPosition.y<self.road[index].y and self.currentPosition.x<self.road[index].x:
+			tmp = 315.0
+		if self.currentPosition.y>self.road[index].y and self.currentPosition.x<self.road[index].x:
+			tmp = 225.0
+		if self.currentPosition.y<self.road[index].y and self.currentPosition.x>self.road[index].x:
+			tmp = 45.0
+		return tmp
+
 	def update(self,dt):
-		# super(ActorSteering,self).update()
 		glPushMatrix()
 		glRotatef(90.0,-1.0,0.0,0.0)
 		glTranslatef(self.currentPosition.x,-self.currentPosition.y,0.0)
-		if self.STEERING :
-			print "STEERING"
-		elif self.ARRIVE and self.index!=len(self.road):
-			self.currentPosition.goto(0.1,self.road[self.index])
-			print self.currentPosition,self.road[self.index], self.currentPosition.compare(self.road[self.index],0.1)
-			if self.currentPosition.compare(self.road[self.index],0.1) : self.index+=1
+		if self.STEERING and self.indexSteering<len(self.road):
+			self.currentPosition.goto(0.1,self.road[self.indexSteering])
+			glRotatef(self.getRotation(self.indexSteering),0.0,0.0,1.0)
+			if self.currentPosition.compare(self.road[self.indexSteering],0.1) : 
+				self.currentPosition = self.road[self.indexSteering].round()
+				self.indexSteering += 1
+		elif self.ARRIVE and self.indexArrive<len(self.road):
+			self.currentPosition.goto(0.1,self.road[self.indexArrive])
+			glRotatef(self.getRotation(self.indexArrive),0.0,0.0,1.0)
+			if self.currentPosition.compare(self.road[self.indexArrive],0.1) :
+				self.currentPosition = self.road[self.indexArrive].round()
+				self.indexArrive+=1
+				self.arriveOff()
+				self.seekOn()
+		else :
+			self.seekOff()
+			self.arriveOff()
+			self.arriveOn()
 		super(ActorSteering,self).draw()
 		glPopMatrix()
-	def setTarget(self,vec):
-		self.target = vec
+
 	def seekOn(self) :
-		self.STEERING = True
-	def seekOff(self) :
-		self.STEERING = False
-	def arriveOn(self) :
-		self.ARRIVE = True
-		self.road = self.graph.trouverChemin(self.graph.getNameByPosition(self.currentPosition),"p33")
-	def arriveOff(self) :
+		self.road = __builtin__.buffer_salle[self.graph.getNameByPosition(self.currentPosition.round())];
+		self.indexArrive = 1
+		self.indexSteering = 1
 		self.ARRIVE = False
-		road = None
+		self.STEERING = True
+
+	def seekOff(self) :
+		self.road = None
+		self.indexArrive = 1
+		self.indexSteering = 1
+		self.STEERING = False
+
+	def arriveOn(self) :
+		self.road = self.graph.trouverChemin(de=self.graph.getNameByPosition(self.currentPosition.round()),a="p33")
+		self.indexArrive = 1
+		self.indexSteering = 1
+		self.STEERING = False
+		self.ARRIVE = True
+
+	def arriveOff(self) :
+		self.indexArrive = 1
+		self.indexSteering = 1
+		self.road = None
+		self.STEERING = False
+		self.ARRIVE = False

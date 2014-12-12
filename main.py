@@ -13,6 +13,8 @@ import parse
 import wavefront
 import acteur 
 
+import __builtin__
+
 
 # Variables globales
 #  -----------------
@@ -28,11 +30,13 @@ except:
 horloge=0.0
 scene = []
 textures={}
+__builtin__.buffer_salle = {}
 laCamera = None
 # pingouin = wavefront.WavefrontModel()
 # pingouin.LoadFile('pingouin/p.obj', 1)
 ex = acteur.ActorSteering(-15.0,-15.0,'pingouin/p.obj')
 ex.arriveOn()
+
 
 def setup():
 
@@ -83,7 +87,9 @@ def on_draw():
 	# glPopMatrix()
 	for obj in scene() :
 		obj.draw()
-
+	
+	for key in __builtin__.buffer_salle :
+		__builtin__.buffer_salle[key]=[]
 
 @window.event
 def on_key_press(symbol,modifiers):

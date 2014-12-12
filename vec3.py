@@ -22,6 +22,10 @@ class Vec3:
 		if abs(self.x - v.x) <= tol and abs(self.y - v.y) <= tol and abs(self.z - v.z) <= tol : return True
 		else : return False
 
+	def compare_angle(self,v,angle):
+		self.x-v.x
+
+
 	def soit(self,v):
 		self.x = v.x
 		self.y = v.y
@@ -71,6 +75,12 @@ class Vec3:
                               self.y*self.y + \
                               self.z*self.z)
 		return l
+
+	def round(self):
+		self.x = float(round(self.x))
+		self.y = float(round(self.y))
+		self.z = float(round(self.z))
+		return self
 
 	def normer(self):
 		l = self.norme()

@@ -1,6 +1,20 @@
 # -*- coding: utf-8 -*-
 import primitives as prims
 import random
+import __builtin__
+import vec3
+
+def getValuePosition(value):
+    if value==-3 : value=0
+    elif value==-1 : value=1
+    elif value==1 : value=2
+    elif value==3 : value=3
+    return str(int(value))
+
+def getNameByPosition(x,y):
+  x = getValuePosition(x/5)
+  y = getValuePosition(y/5)
+  return "p"+x+y
 
 def getVal(attrs,nom,defaut):
   if attrs.has_key(nom):
@@ -100,6 +114,8 @@ class Salle:
     self.style = getVal(attr,"theme","none")
     self.buffer_wall=[self.n,self.s,self.e,self.w]
     self.buffer_tableau = "none"
+    self.name = getNameByPosition(self.x,self.y)
+    __builtin__.buffer_salle[self.name]=[];
     self.count_tableau = 1
 
   def cloison(self,translation_x,translation_z,rotation):
@@ -157,6 +173,8 @@ class Salle:
     if flag==0 :
       a = self.get_tableau_by_theme()
       self.draw_tableau(str(a),translation_x,translation_y,rotation)
+      __builtin__.buffer_salle[self.name].append(vec3.Vec3(translation_x,translation_y,0.0))
+      __builtin__.buffer_salle[self.name].append(vec3.Vec3(self.x,self.y,0.0))
 
   def random_offset(self):
       # offset = random.randint(0, 1)

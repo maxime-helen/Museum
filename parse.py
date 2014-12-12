@@ -14,7 +14,6 @@ def getAttributs(node):
 	return res 
 
 def parse(node):
-
 	nomBalise = node.tagName
 	attributs = getAttributs(node)
 	lesFils = [parse(e) for e in node.childNodes if e.nodeType==e.ELEMENT_NODE]

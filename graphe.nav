@@ -36,8 +36,10 @@ a p01 p11
 
 a p11 p21
 
-a p21 p22
-	a p22 p32
+a p21 p31
+
+
+a p22 p32
 
 a p22 p23
 	a p23 p13
@@ -46,10 +48,11 @@ a p23 p33
 
 
 a p12 p13
+
 a p13 p03
 a p03 p02
 
 a p20 p30
 a p30 p31
 a p31 p32
-
+a p32 p33
