@@ -101,7 +101,7 @@ class Dijkstra :
 	def getNameByPosition(self,vec):
 		x = self.getValuePosition(vec.x/5)
 		y = self.getValuePosition(vec.y/5)
-		return "p"+x+y
+		return "p"+y+x
 
 	def chercher(self, ori, ext):
 
@@ -227,6 +227,7 @@ if __name__ == "__main__":
 	# print "==> ", dij.chercher("p00","p21")
 	# print unGraphe.coordonnees(dij.chercher("p00","p21"))
 	print "==> ", dij.trouverChemin(de="p00",a="p33")
+	print "==> ", dij.trouverChemin(de="p12",a="p31")
 	print dij.getNameByPosition(vec3.Vec3(15.0,5.0,0))
 
 	print unGraphe

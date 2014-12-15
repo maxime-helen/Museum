@@ -14,7 +14,7 @@ def getValuePosition(value):
 def getNameByPosition(x,y):
   x = getValuePosition(x/5)
   y = getValuePosition(y/5)
-  return "p"+x+y
+  return "p"+y+x
 
 def getVal(attrs,nom,defaut):
   if attrs.has_key(nom):

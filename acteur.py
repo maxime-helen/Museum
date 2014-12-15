@@ -2,6 +2,7 @@ import vec3
 import wavefront
 import graphe
 import __builtin__
+import random
 from pyglet.gl import *
 
 class Actor(object) :
@@ -33,6 +34,9 @@ class ActorSteering(Actor) :
 		self.angle = 0.0
 		Actor.__init__(self,x,y,url)
 		self.road = self.graph.trouverChemin(de=self.graph.getNameByPosition(vec3.Vec3(x,y,0.0)),a="p33")
+
+	def getRandomRoom(self):
+		return "p"+str(random.randint(0, 3))+str(random.randint(0, 3))
 
 	def getRotation(self,index):
 		tmp = 1
@@ -93,7 +97,7 @@ class ActorSteering(Actor) :
 		self.STEERING = False
 
 	def arriveOn(self) :
-		self.road = self.graph.trouverChemin(de=self.graph.getNameByPosition(self.currentPosition.round()),a="p33")
+		self.road = self.graph.trouverChemin(de=self.graph.getNameByPosition(self.currentPosition.round()),a=self.getRandomRoom())
 		self.indexArrive = 1
 		self.indexSteering = 1
 		self.STEERING = False
