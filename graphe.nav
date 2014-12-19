@@ -31,8 +31,8 @@ s p33 passage 15 15 0
 a p00 p01
 
 a p01 p11
-	a p11 p10
-	a p11 p12
+a p11 p10
+a p11 p12
 
 a p11 p21
 
@@ -42,7 +42,7 @@ a p21 p31
 a p22 p32
 
 a p22 p23
-	a p23 p13
+a p23 p13
 
 a p23 p33
 
@@ -55,4 +55,3 @@ a p03 p02
 a p20 p30
 a p30 p31
 a p31 p32
-a p32 p33

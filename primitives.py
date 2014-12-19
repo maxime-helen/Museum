@@ -32,7 +32,6 @@ class CatalogueTextures :
 			return self.catalogue[nom]
 		else:
 			image = pyglet.image.load(nom)
-			print ">>>>> TEXTURE ", nom, " CHARGEE"
 			texture = image.get_texture()
 			glBindTexture(GL_TEXTURE_2D,texture.id)
 			glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR)

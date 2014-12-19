@@ -32,8 +32,6 @@ scene = []
 textures={}
 __builtin__.buffer_salle = {}
 laCamera = None
-# pingouin = wavefront.WavefrontModel()
-# pingouin.LoadFile('pingouin/p.obj', 1)
 ex = acteur.ActorSteering(-15.0,-15.0,'pingouin/p.obj')
 ex.arriveOn()
 ex1 = acteur.ActorSteering(-15.0,5.0,'pingouin/p.obj')
@@ -42,6 +40,12 @@ ex2 = acteur.ActorSteering(5.0,-15.0,'pingouin/p.obj')
 ex2.arriveOn()
 ex3 = acteur.ActorSteering(-5.0,15.0,'pingouin/p.obj')
 ex3.arriveOn()
+ex4 = acteur.ActorSteering(-15.0,-5.0,'pingouin/p.obj')
+ex4.arriveOn()
+ex5 = acteur.ActorSteering(5.0,5.0,'pingouin/p.obj')
+ex5.arriveOn()
+ex6 = acteur.ActorSteering(5.0,-5.0,'pingouin/p.obj')
+ex6.arriveOn()
 
 
 def setup():
@@ -81,19 +85,14 @@ def on_draw():
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
 	# Placement de la camera
-	
-	#glLoadIdentity()
-	#gluLookAt( 0.0, 1.6, 8.0, 0.0, 1.6, 0.0, 0.0,1.0,0.0)
 	laCamera.placer()
 	ex.update(0.1)
 	ex1.update(0.1)
 	ex2.update(0.1)
 	ex3.update(0.1)
-	# glPushMatrix()
-	# glRotatef(90.0,-1.0,0.0,0.0)
-	# glTranslatef(-15.0, 15.0,0.0)
-	# pingouin.Draw()
-	# glPopMatrix()
+	ex4.update(0.1)
+	ex5.update(0.1)
+	ex6.update(0.1)
 	for obj in scene() :
 		obj.draw()
 	
@@ -129,7 +128,6 @@ def on_mouse_drag(x,y,dx,dy,boutons,modifiers):
 	laCamera.rotationCamera(dx)
 	# laCamera.rotationCameraY(dy)
 
-
 def update(dt):
 	global horloge
 
@@ -147,10 +145,22 @@ def update(dt):
 
 if __name__ == "__main__":
 	
-	print "Hello World"
 	setup()
 
 	# La fonction update sera appelee toutes les 30eme de seconde
         pyglet.clock.schedule_interval(update, 1.0/30.0)
 
+    	print '*****************************************************README*************************************************************'
+   	print 'SEVEN PINGOUIN ACTORS FIRE <ARRIVE> PROCEDURE FROM DIFFERENT POSITIONS'
+	print 'ONCE THEY REACH A ROOM, <STEERING> PROCEDURE IS FIRED'
+	print 'IF ANY ROOMS HAVE PAINTS, ACTOR WILL ADMIRE EVERY DRAWS OVER <STEERING> PROCEDURE AND WILL TAKE OVER <ARRIVE> AT THE END'
+	print 'IF ANY ROOMS ARE HALLS, ACTOR WILL FIRE <ARRIVE> PROCEDURE AUTOMATICALLY ONCE THE HALL REACHED'
+	print 'IMPORTANT: PRESS "A" FOR CHECKING OUT THOSE PINGUIN BEHAVIORS UNDER A GLOBAL VIEW'
+	print 'IMPORTANT: PRESS "A" FOR CHECKING OUT THOSE PINGUIN BEHAVIORS UNDER A GLOBAL VIEW'
+	print 'IMPORTANT: PRESS "A" FOR CHECKING OUT THOSE PINGUIN BEHAVIORS UNDER A GLOBAL VIEW'
+	print 'ENJOY'
+	print 'TEFA CP - ZeZen - Manchette - December 2014'
+	print '************************************************************************************************************************'
+
 	pyglet.app.run()
+

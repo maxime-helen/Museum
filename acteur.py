@@ -13,7 +13,7 @@ class Actor(object) :
 		self.originPosition = vec3.Vec3(x,y,0.0)
 		self.url = url
 		self.model = wavefront.WavefrontModel()
-		self.model.LoadFile('pingouin/p.obj', 1)
+		self.model.LoadFile(url, 1)
 		self.currentPosition.vers(self.null,self.originPosition)
 
 	def update(self):
@@ -97,7 +97,7 @@ class ActorSteering(Actor) :
 		self.STEERING = False
 
 	def arriveOn(self) :
-		self.road = self.graph.trouverChemin(de=self.graph.getNameByPosition(self.currentPosition.round()),a=self.getRandomRoom())
+		self.road = self.graph.trouverChemin(de=self.graph.getNameByPosition(self.currentPosition.round()),a="p33")
 		self.indexArrive = 1
 		self.indexSteering = 1
 		self.STEERING = False
